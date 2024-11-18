@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Coder - All C Programs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+        }
+        
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 1rem;
+            display: block;
+        }
+        
+        nav a:hover {
+            background-color: #575757;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .program-section {
+            margin-bottom: 2rem;
+        }
+        
+        .program-section h2 {
+            color: #4CAF50;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 0.5rem;
+        }
+        
+        .program-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        pre {
+            background: #f9f9f9;
+            padding: 1rem;
+            overflow-x: auto;
+            border-radius: 5px;
+            font-family: monospace;
+        }
+        
+        footer {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 1rem 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>C Coder</h1>
+        <p>Your Ultimate Resource for All C Programs</p>
+    </header>
+
+    <nav>
+        <a href="#basic">Basic Programs</a>
+        <a href="#patterns">Patterns</a>
+        <a href="#sorting">Sorting</a>
+        <a href="#file-handling">File Handling</a>
+        <a href="#pointers">Pointers</a>
+        <a href="#recursion">Recursion</a>
+        <a href="#advanced">Advanced Concepts</a>
+    </nav>
+
+    <div class="container">
+
+        <!-- Basic Programs Section -->
+        <section id="basic" class="program-section">
+            <h2>Basic Programs</h2>
+            <div class="program-card">
+                <h3>Reverse a Number</h3>
+                <pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int num, reversed = 0;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    while (num != 0) {
+        reversed = reversed * 10 + num % 10;
+        num /= 10;
+    }
+
+    printf("Reversed number is %d\n", reversed);
+    return 0;
+}
+                </pre>
+            </div>
+        </section>
+
+        <!-- Patterns Section -->
+        <section id="patterns" class="program-section">
+            <h2>Pattern Printing</h2>
+            <div class="program-card">
+                <h3>Number Triangle</h3>
+                <pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n = 5; // Number of rows
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= i; j++) {
+            printf("%d ", j);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+                </pre>
+            </div>
+        </section>
+
+        <!-- Sorting Section -->
+        <section id="sorting" class="program-section">
+            <h2>Sorting Algorithms</h2>
+            <div class="program-card">
+                <h3>Insertion Sort</h3>
+                <pre>
+#include &lt;stdio.h&gt;
+
+void insertionSort(int arr[], int n) {
+    for (int i = 1; i < n; i++) {
+        int key = arr[i];
+        int j = i - 1;
+
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j = j - 1;
+        }
+        arr[j + 1] = key;
+    }
+}
+
+int main() {
+    int arr[] = {12, 11, 13, 5, 6};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    insertionSort(arr, n);
+
+    printf("Sorted array: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}
+                </pre>
+            </div>
+        </section>
+
+        <!-- File Handling Section -->
+        <section id="file-handling" class="program-section">
+            <h2>File Handling</h2>
+            <div class="program-card">
+                <h3>Append to a File</h3>
+                <pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    FILE *file;
+    char data[100];
+
+    file = fopen("example.txt", "a");
+    if (file == NULL) {
+        printf("Error opening file!\n");
+        return 1;
+    }
+
+    printf("Enter text to append: ");
+    fgets(data, 100, stdin);
+
+    fprintf(file, "%s", data);
+    fclose(file);
+
+    printf("Data appended successfully!\n");
+    return 0;
+}
+                </pre>
+            </div>
+        </section>
+
+        <!-- Pointers Section -->
+        <section id="pointers" class="program-section">
+            <h2>Pointers</h2>
+            <div class="program-card">
+                <h3>Array Traversal Using Pointers</h3>
+                <pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 5};
+    int *ptr = arr;
+
+    printf("Array elements are:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", *(ptr + i));
+    }
+
+    return 0;
+}
+                </pre>
+            </div>
+        </section>
+
+        <!-- Recursion Section -->
+        <section id="recursion" class="program-section">
+            <h2>Recursion</h2>
+            <div class="program-card">
+                <h3>Fibonacci Series</h3>
+                <pre>
+#include &lt;stdio.h&gt;
+
+int fibonacci(int n) {
+    if (n <= 1) {
+        return n;
+    }
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+int main() {
+    int n = 10;
+
+    printf("Fibonacci Series: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", fibonacci(i));
+    }
+
+    return 0;
+}
+                </pre>
+            </div>
+        </section>
+
+        <!-- Advanced Concepts Section -->
+        <section id="advanced" class="program-section">
+            <h2>Advanced Concepts</h2>
+            <div class="program-card">
+                <h3>Matrix Multiplication</h3>
+                <pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int a[2][2] = {{1, 2}, {3, 4}};
+    int b[2][2] = {{2, 0}, {1, 2}};
+    int c[2][2] = {0};
+
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 2; j++) {
+            for (int k = 0; k < 2; k++) {
+                c[i][j] += a[i][k] * b[k][j];
+            }
+        }
+    }
+
+    printf("Resultant Matrix:\n");
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 2; j++) {
+            printf("%d ", c[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+                </pre>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 C Coder.</p>
+        <P>&Contact:-8669386093</p>
+        <P>&Email id:- madaneshubham853@gmail.com</p>
+        <P>&All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
